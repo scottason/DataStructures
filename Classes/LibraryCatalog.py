@@ -38,3 +38,18 @@ class LibraryCatalog:
     def display_catalog(self):
         for book in self.catalog.values():
             print(book.get_info())
+
+    def sort_catalog_by_title(self):
+        sorted_catalog = sorted(self.catalog.values(), key=lambda x: x.title)
+        self.catalog = {book.title: book for book in sorted_catalog}
+        self.save_catalog()
+
+    def sort_catalog_by_genre(self):
+        sorted_catalog = sorted(self.catalog.values(), key=lambda x: x.genre)
+        self.catalog = {book.title: book for book in sorted_catalog}
+        self.save_catalog()
+
+    def sort_catalog_by_volumes(self):
+        sorted_catalog = sorted(self.catalog.values(), key=lambda x: x.volumes)
+        self.catalog = {book.title: book for book in sorted_catalog}
+        self.save_catalog()
