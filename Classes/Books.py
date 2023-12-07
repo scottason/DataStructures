@@ -6,3 +6,10 @@ class Book:
 
     def get_info(self):
         return f"{self.title} ({self.genre}) - {self.volumes} volumes"
+
+    def get_title(self):
+        return self.title
+    def get_genre(self):
+        return self.genre
+    def get_volumes(self):
+        return self.volumes

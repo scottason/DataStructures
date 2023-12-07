@@ -53,3 +53,11 @@ class LibraryCatalog:
         sorted_catalog = sorted(self.catalog.values(), key=lambda x: x.volumes)
         self.catalog = {book.title: book for book in sorted_catalog}
         self.save_catalog()
+
+    def delete_book(self, title):
+        if title in self.catalog:
+            del self.catalog[title]
+            self.save_catalog()
+            return True
+        else:
+            return False
