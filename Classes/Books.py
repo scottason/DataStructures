@@ -5,11 +5,15 @@ class Book:
         self.volumes = volumes
 
     def get_info(self):
-        return f"{self.title} ({self.genre}) - {self.volumes} volumes"
+        volumes_str = " ".join(str(volume) for volume in self.volumes)
+        return f"{self.title} ({self.genre}) - Volumes: ({volumes_str})"
+
 
     def get_title(self):
         return self.title
+
     def get_genre(self):
         return self.genre
+
     def get_volumes(self):
         return self.volumes

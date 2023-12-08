@@ -90,7 +90,10 @@ class BookGUI:
 
                 self.title_entry.insert(0, book.get_title())
                 self.genre_entry.insert(0, book.get_genre())
-                self.volumes_entry.insert(0, book.get_volumes())
+
+                # Convert volumes to a string and insert it into the volumes_entry
+                volumes_str = "".join(str(volume) for volume in book.get_volumes())
+                self.volumes_entry.insert(0, volumes_str)
 
     def load_books(self):
         # Clear the listbox
