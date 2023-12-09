@@ -16,7 +16,7 @@ class LibraryCatalog:
                 book = Book(title, genre, volumes)
                 catalog[title] = book
         except Exception as e:
-            print(f"Error loading catalog: {e}")
+            return(f"Error loading catalog: {e}")
         return catalog
 
     def add_book_to_catalog(self, book):

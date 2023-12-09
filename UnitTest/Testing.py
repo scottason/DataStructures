@@ -6,8 +6,8 @@ import tkinter as tk
 class TestBook(unittest.TestCase):
 
     def test_book_creation(self):
-        book = Book("Title", "Genre", 3)
-        self.assertEqual(book.get_info(), "Title (Genre) - 3 volumes")
+        book = Book("Title", "Genre", "3,4")
+        self.assertEqual(book.get_info(), "Title (Genre) - Volumes: (3 , 4)")
 
     def test_library_catalog(self):
         library = LibraryCatalog("test_file")
@@ -21,7 +21,7 @@ class TestBook(unittest.TestCase):
 
     def test_book_gui(self):
         root = tk.Tk()
-        library = LibraryCatalog()
+        library = LibraryCatalog("ExcelFiles/test.xlsx")
         book_gui = BookGUI(root, library)
 
         book_gui.title_entry.insert(0, "GUI Book")
@@ -31,7 +31,7 @@ class TestBook(unittest.TestCase):
         book_gui.add_book()
 
         self.assertEqual(len(library.catalog), 1)
-        self.assertEqual(library.catalog["GUI Book"].get_info(), "GUI Book (GUI Genre) - 4 volumes")
+        self.assertEqual(library.catalog["GUI Book"].get_info(), "GUI Book (GUI Genre) - Volumes: (4)")
 
 if __name__ == '__main__':
     unittest.main()
